@@ -90,6 +90,7 @@ def interactive_crop(image_path):
                 y1, y2 = min(iy, fy), max(iy, fy)
                 
                 if x2 - x1 > 3 and y2 - y1 > 3:
+                    # FIX: Crop directly from the clean 'clone' instead of 'current_image' to avoid capturing the frame lines
                     cell_crop = clone[y1:y2, x1:x2]
                     count = crop_counters[current_label]
                     
@@ -122,5 +123,5 @@ def interactive_crop(image_path):
 
 if __name__ == "__main__":
     # Change this filename to your image file (e.g., "w1-0h.F.100x (1).tif")
-    image_filename = r"D:\MTEC\Image-Processing\Cell Classification and Counting\cell detection dataset\Processed\100x\w1-0h.F.100x (1).tif" 
+    image_filename = r"D:\MTEC\Image-Processing\Cell Classification and Counting\cell detection dataset\Processed\100x\w1-0h.F.100x (1).jpg"
     interactive_crop(image_filename)
